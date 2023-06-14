@@ -17,15 +17,10 @@ export const GreetigSlice = createSlice({
   initialState,
   reducers: { },
   extraReducers: (builder) => {
-    builder.addCase(fetchGreetings.pending, (state) => {
-      state.status = 'loading';
-    });
     builder.addCase(fetchGreetings.fulfilled, (state, action) => {
-      state.status = 'succeeded';
       state.greetingstore = state.greetingstore.concat(action.payload);
     });
     builder.addCase(fetchGreetings.rejected, (state, action) => {
-      state.status = 'failed';
       state.error = action.error.message;
     });
   },
